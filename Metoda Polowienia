@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+float f(float x) {
+    return x * x * x - 3 * x * x + 2 * x - 6;
+}
+
+int main() {
+    float a = -10, b = 10, eps = 0.00001, s, wartBezwzgl;
+
+    wartBezwzgl = b - a;
+    if (wartBezwzgl < 0) wartBezwzgl *= -1;
+
+    while (wartBezwzgl > eps) {
+
+        s = (a + b) / 2;
+
+        // 1. ustalenie nowego przedziału
+        if (f(a) * f(s) < 0)
+            b = s;
+        else
+            a = s;
+
+        // 2. wyznaczenie nowej wartBezwzgl
+        wartBezwzgl = b - a;
+        if (wartBezwzgl < 0) wartBezwzgl *= -1;
+    }
+
+    cout << "Miejsce zerowe w przedziale(" << a << " " << b << ") wynosi: " << s << " wb: " << wartBezwzgl;
+    return 0;
+}
