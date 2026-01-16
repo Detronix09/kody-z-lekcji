@@ -1,0 +1,20 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main(){
+    ifstream dane("dane2_3");
+    string napis;
+    int max = 0;
+    while(dane >> napis){
+        int suma = 0;
+        cout << napis <<  endl;
+
+        if(napis[0] == '[') suma ++;
+        if (suma > max) max = suma;
+        if(napis[0] == ']') suma --;
+    }
+    cout << max;
+
+    return 0;
+}
