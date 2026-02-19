@@ -1,0 +1,30 @@
+  #include <iostream>
+using namespace std;
+
+
+bool czy_anagram(string a, string b) {
+    int dl1 = a.size(), dl2 = b.size();
+    if (dl1 != dl2) return false;
+    int licznik[127] = {};
+    
+    for (int i = 0; i < dl1; i++) {
+        licznik[a[i]]++;
+    }
+    for (int i = 0; i < dl2; i++) {
+        licznik[b[i]]--;
+    }
+    for (int i = 0; i < 127; i++) {
+        if (licznik[i] != 0) return false;
+    }
+}
+
+int main(){
+    string a, b;
+    cin >> a >> b;
+    if (czy_anagram(a, b)) {
+        cout << endl << "tak";
+    }
+    else {
+        cout << "nie";
+    }
+}
