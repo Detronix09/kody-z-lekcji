@@ -42,22 +42,15 @@ void zad23(){
 }
 
 int main(){
-     
+    string n = "+oooo****+oo+o+";
+    long long liczba = 0, w;
+    for(int i = 0; i< 12; i++){
+        if(n[i] == 'o') w = 0;
+        if(n[i] == '+') w = 1;
+        if(n[i] == '*') w = 2;
+
+        liczba = liczba*10 + w;
+        cout << w << " " << liczba << endl;
+    }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
