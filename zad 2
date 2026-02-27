@@ -1,0 +1,63 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+    bool czypalindrom(string a){
+
+        for(int i = 0; i<a.size()+1; i++){
+            if( a[i] != a[a.size() - i-1])return false;
+            }
+        return true;
+        }
+
+void zad2(){
+    string a;
+    ifstream odczyt("symbole_przyklad.txt");
+        string napis;
+        int napis_count = 1;
+        while (odczyt >> napis) {
+            if (czypalindrom(napis)){
+                ofstream zapis ("wyniki2.txt");
+                    zapis << napis;
+                    }
+        }
+}
+void zad23(){
+    ifstream odczyt("symbole_przyklad.txt");
+    ofstream zapis ("wyniki2.2.txt");
+    string n0, n1, n2;
+    int kcount = 1;
+    odczyt>> n0 >> n1;
+
+    while(odczyt >> n2){
+        kcount ++;
+        for(int i = 0; i<12 - 1; i++){
+            if(n1[i] == n0 [i-1] and n1[i] == n0[i] and n1[i] == n0[i+1] and n1[i] == n1[i-1] and n1[i] == n1[i+1] and n1[i] == n2 [i-1] and n1[i] == n2[i] and n1[i] == n2[i+1]) cout << i+1 << " " << kcount << " ";
+
+        }
+
+        n0 = n1;
+        n1 = n2;
+    }
+}
+
+int main(){
+     
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
